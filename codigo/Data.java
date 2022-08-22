@@ -21,21 +21,11 @@ public class Data {
 	}
 	
 	boolean dataValida() {
-		if(ano < 2022) {
+		if (ano < 2022)
 			return false;
-		}else if (mes < 1 && mes > 12) {
+		 else if (mes < 1 && mes > 12) 
 			return false;
-			}else{
-				 maximoDeDias = DIASDOMES[mes];
-                 if (anoBissexto()&&mes==2)                    //caso de 29/02 em ano bissexto --> data válida
-                        maximoDeDias++;
-                 if (dia > maximoDeDias)                //verifica validade de acordo com o mês atual
-                         resposta = false;
-			}
-		}
-	}
-		
-		
-		
-		
+		 else 
+			return true;
+	}	
 }
