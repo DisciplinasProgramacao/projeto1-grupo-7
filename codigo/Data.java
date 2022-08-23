@@ -1,4 +1,4 @@
-package trab1;
+// package trab1;
 
 public class Data {
 
@@ -21,6 +21,9 @@ public class Data {
 	}
 
 	boolean dataValida() {
+		int[] diaDoMes = {31,28,29,31,30,31,30,31,31,30,31,30,31};
+
+		System.out.println(diaDoMes[1]);
 		if (ano < 2022)
 			return false;
 		 else if (mes < 1 && mes > 12) 
