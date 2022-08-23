@@ -6,29 +6,43 @@ public class Data {
 	int mes;
 	int ano;
 
-	String obterDataFormatada() {
+	public static void main(String[] args) {
+		Data obj = new Data();
+		boolean boo = obj.dataValida();
+		if (!boo) {
+			System.out.println("data invalida");
+		} else {
+			System.out.println("data valida");
+		}
+	}
+
+	private String obterDataFormatada() {
 		return String.format("%d/%d/%d", dia, mes, ano);
 	}
 
-	boolean anoBissexto() {
-		double ano = 2020;
-
+	private boolean anoBissexto() {
 		if (ano % 4 == 0) {
 			return true;
-		}else{
+		} else {
 			return false;
 		}
 	}
 
-	boolean dataValida() {
-		int[] diaDoMes = {31,28,29,31,30,31,30,31,31,30,31,30,31};
+	private boolean dataValida() {
+		Data obj = new Data();
+		int[] maxDiaDoMes = { 31, 28, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
-		System.out.println(diaDoMes[1]);
-		if (ano < 2022)
+		boolean anoBissexto = obj.anoBissexto();
+		if (mes < 1 && mes > 12)
 			return false;
-		 else if (mes < 1 && mes > 12) 
+		else if (ano < 2022)
 			return false;
-		 else 
+		if (anoBissexto && mes == 1) {
+			if (dia > 29 && dia < 0)
+				return false;
+		} else if (dia > maxDiaDoMes[mes - 1] || dia < 0)
+			return false;
+			else 
 			return true;
 	}
 
