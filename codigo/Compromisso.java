@@ -1,4 +1,4 @@
-import java.util.Scanner;
+// import java.util.Scanner;
 public class Compromisso{
     private int quantidade;    
     private int intervaloDias;
@@ -6,22 +6,23 @@ public class Compromisso{
     private String data;
 
     public int getQuantidade(){
-        return quantidade 
+        return quantidade;
     }
     public int intervaloDias(){
-        return quantidade 
+        return quantidade;
     }
-    public String dataPrimeiro(){
-        return quantidade 
+    public int dataPrimeiro(){
+        return quantidade;
     }
-    public String data(){
-        return quantidade 
+    public int data(){
+        return quantidade;
     }
 
     public void criarCompromissos(){
 
     }
     public String calcularDatas(){
-        return '01-01-2000'
+        data = "01-01-2000";
+        return data;
     }
 }
