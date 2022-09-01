@@ -1,7 +1,7 @@
-public class ListaCompromisso{
-    private Compromisso compromisso = new Compromisso();
+// public class ListaCompromisso{
+//     private Compromisso compromisso = new Compromisso();
 
-    public void relatorioCompromisso(){
+//     public void relatorioCompromisso(){
 
-    }
-}
+//     }
+// }

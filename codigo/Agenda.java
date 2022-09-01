@@ -5,10 +5,12 @@ public class Agenda {
 
     private List<CompromissoGenerico> compromisso = new ArrayList<CompromissoGenerico>();
     
-    public void marcarCompromisso(int quantidadeDias, int intervaloDias, String dataInicial , String nome){
+    public void marcarCompromisso(int quantidadeDias, int intervaloDias, int dia,int mes,int ano, int intervalo , String nome){
         int contador = 0;
+        
         while (contador < quantidadeDias) {
-            CompromissoGenerico compromissoNovo = new CompromissoGenerico(dataInicial, nome);
+            DataGenerico dataCompromisso = new DataGenerico(dia, mes, ano, intervalo);
+            CompromissoGenerico compromissoNovo = new CompromissoGenerico(dataCompromisso, nome);
             compromisso.add(compromissoNovo);
             contador++;
           }
