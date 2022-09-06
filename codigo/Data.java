@@ -16,11 +16,11 @@ public class Data {
 		}
 	}
 
-	private String obterDataFormatada() {
+	public String obterDataFormatada() {
 		return String.format("%d/%d/%d", dia, mes, ano);
 	}
 
-	private boolean anoBissexto() {
+	public boolean anoBissexto() {
 		if (ano % 4 == 0) {
 			return true;
 		} else {
@@ -28,7 +28,7 @@ public class Data {
 		}
 	}
 
-	private boolean dataValida() {
+	public boolean dataValida() {
 		Data obj = new Data();
 		int[] maxDiaDoMes = { 31, 28, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
