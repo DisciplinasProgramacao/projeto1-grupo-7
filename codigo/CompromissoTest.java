@@ -6,7 +6,7 @@ public class CompromissoTest {
   Compromisso compromisso = new Compromisso();
   @Test
   public void criarCompromissosCompletoTest() {
-    boolean obtido = compromisso.criarCompromissos("fulano de tal", "02-09-2022");
+    boolean obtido = compromisso.criarCompromissos("fulano de tal", "02/09/2022");
     assertEquals(true, obtido);
   }
   @Test
