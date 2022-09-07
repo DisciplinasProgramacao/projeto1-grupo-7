@@ -17,13 +17,20 @@ public class Agenda {
      */
     public void marcarCompromisso(int quantidadeDias, int intervaloDias, int dia,int mes,int ano, String nome){
         int contador = 0;
-        
-        while (contador < quantidadeDias) {
-            DataGenerico dataCompromisso = new DataGenerico(dia, mes, ano, intervaloDias);
+        if(quantidadeDias == 0){
+            Data dataCompromisso = new Data(dia, mes, ano, intervaloDias);
             Compromisso compromissoNovo = new Compromisso(dataCompromisso, nome);
             compromissos.add(compromissoNovo);
-            contador++;
-          }
+        }else{
+            while (contador < quantidadeDias) {
+                int intervaloDiasEmQuestao = intervaloDias * contador;
+                Data dataCompromisso = new Data(dia, mes, ano, intervaloDiasEmQuestao);
+                Compromisso compromissoNovo = new Compromisso(dataCompromisso, nome);
+                compromissos.add(compromissoNovo);
+                contador++;
+            }
+        }
+
 
     }
 
@@ -45,11 +52,12 @@ public class Agenda {
      * @param nome nome do compromisso que vai ser apagado
      * @param data data do compromisso que vai ser apagado
      */
-    public void apagarCompromisso(String nome, String data){
-        if(encontrarCompromisso(nome, data) == null){
+    public void apagarCompromisso(String nome, int dia, int mes, int ano){
+        Data dataCompromisso = new Data(dia, mes, ano, 0);
+        if(encontrarCompromisso(nome, dataCompromisso) == null){
             System.out.println("Compromisso não encontrado");
         } else {
-            Compromisso compromissoApagado = encontrarCompromisso(nome, data);
+            Compromisso compromissoApagado = encontrarCompromisso(nome, dataCompromisso);
             compromissos.remove(compromissoApagado);
         }
     }
@@ -60,9 +68,9 @@ public class Agenda {
      * @param data data do compromisso para ser encontrado
      * @return o compromisso que possui nome e data iguais aos do parâmetro
      */
-    public Compromisso encontrarCompromisso(String nome, String data){
+    public Compromisso encontrarCompromisso(String nome, Data data){
         for (Compromisso compromisso : compromissos) {
-            if(compromisso.mostrarComprimisso().equals(nome + ":" + data) ){
+            if(compromisso.mostrarComprimisso().equals(nome + ":" + data.obterDataFormatada()) ){
                 return compromisso;
             }
         }

@@ -2,10 +2,9 @@
 
 public class Data{
 
-	int dia;
-	int mes;
-	int ano;
-	int intervaloDias;
+	private int dia;
+	private int mes;
+	private int ano;
 	/**
 	 * Construtor da classe data, checa se a data é verdadeira e calcula
 	 * se tiver intervalo de dias para a data do compromisso que será criado
@@ -45,18 +44,24 @@ public class Data{
 			return false;
 		}
 	}
-
+	/**
+	 * Método que verifica se a datá é válida.
+	 * retorna 1 para datas falsas, 2 para passar mês, 3 para passar ano e 5 está correto
+	 * @param dia dia recebido pela função
+	 * @param mes mes recebido pela função
+	 * @param ano ano recebido pela função
+	 * @return 1 para datas falsas, 2 para passar mês, 3 para passar ano e 5 está correto
+	 */
 	private int dataValida(int dia, int mes, int ano) {
 		int[] maxDiaDoMes = { 31, 28, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 		
 
-		// 1 para datas falsas, 2 para passar mês, 3 para passar ano e 5 está correto
+		
 		if (mes < 1 && mes > 12){
 			return 1;
 		} else if (ano < 2022) {
 			return 1;
 		} else if (anoBissexto(ano) && mes == 2) {
-			System.out.println(dia);
 			if (dia > 28){
 				return 2;
 			}
@@ -72,6 +77,13 @@ public class Data{
 
 	}
 	
+	/**
+	 * Método que atualiza a data com base no intervalo dado no construtor
+	 * @param dia dia dado no construtor
+	 * @param mes mes dado no construtor
+	 * @param ano ano dado no construtor
+	 * @param intervaloDias intervalo de dias dado no construtor
+	 */
 	private void dataComIntervalo(int dia, int mes, int ano, int intervaloDias){
 		int auxDia = dia;
 		int auxMes = mes;

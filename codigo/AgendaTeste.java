@@ -7,7 +7,7 @@ public class AgendaTeste {
     @BeforeEach
     void init() {
         
-        agenda.marcarCompromisso(1, 0, 1, 1, 2000, "Teste");
+        agenda.marcarCompromisso(3, 2, 1, 1, 2022, "Teste");
     }
     
     @Test
@@ -22,13 +22,13 @@ public class AgendaTeste {
 
     @Test
     public void apagarCompromisso(){
-        agenda.apagarCompromisso("Teste", "01/01/2000");
+        agenda.apagarCompromisso("Teste", 1,1,2022);
         assertEquals(agenda.quantidadeCompromissos(), 0);
     }
 
     @Test
     public void apagarCompromissoNaoExistente(){
-        agenda.apagarCompromisso("Test", "01/01/2000");
+        agenda.apagarCompromisso("Test", 1,1,2022);
         assertEquals(agenda.quantidadeCompromissos(), 1);
     }
 

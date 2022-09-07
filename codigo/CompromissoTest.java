@@ -3,15 +3,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 // import java.beans.Transient;
 public class CompromissoTest {
-  Compromisso compromisso = new Compromisso();
+  Data data = new Data(2,9,2022,0);
+  Compromisso compromisso = new Compromisso(data, "teste");
   @Test
   public void criarCompromissosCompletoTest() {
-    boolean obtido = compromisso.criarCompromissos("fulano de tal", "02-09-2022");
-    assertEquals(true, obtido);
+    assertEquals("teste:2/9/2022 ", compromisso);
   }
-  @Test
-  public void criarCompromissosTest() {
-    boolean obtido = compromisso.criarCompromissos("fulano de tal");
-    assertEquals(true, obtido);
-  }
+
 }

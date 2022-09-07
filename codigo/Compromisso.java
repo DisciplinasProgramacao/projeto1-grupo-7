@@ -1,18 +1,21 @@
-import java.util.Scanner;
 public class Compromisso {
-  private String nomeCompromisso;
-  private String dataCompromisso;
+    private String data;
+    private String nome;
+    /**
+     * Construtor da classe compromisso, nela o compromisso é criado com data e nome dele
+     * @param data data do compromisso
+     * @param nome nome do compromisso
+     */
+    public Compromisso(Data data, String nome){
+        this.data = data.obterDataFormatada();
+        this.nome = nome;
+    }
+    /**
+     * Método que retorna o nome e a data do compromisso 
+     * @return String do nome e data do compromisso
+     */
+    public String mostrarComprimisso(){
+        return this.nome + ":" + this.data;
+    }
 
-  public boolean criarCompromissos(String nomeCompromisso,String dataCompromisso) {
-    this.nomeCompromisso = nomeCompromisso;
-    this.dataCompromisso = dataCompromisso;
-    
-    return true;
-  }
-  public boolean criarCompromissos(String nomeCompromisso) {
-    this.nomeCompromisso = nomeCompromisso;
-    this.dataCompromisso = "Nao definida";
- 
-    return true;
-  }
 }

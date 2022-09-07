@@ -36,7 +36,7 @@ public class App {
                         ano = Integer.parseInt(teclado.nextLine());
                         System.out.println("Colocar quantidade de dias");
                         quantidadeDias = Integer.parseInt(teclado.nextLine());
-                        System.out.println("Colocar intervalo(se for só 1 dia colocar 0) ");
+                        System.out.println("Colocar intervalo ");
                         intervaloDias = Integer.parseInt(teclado.nextLine());
                         System.out.println("Colocar nome do compromisso");
                         nome = teclado.nextLine();
@@ -57,7 +57,7 @@ public class App {
                         System.out.println("Colocar nome do compromisso");
                         nome = teclado.nextLine();
 
-                        agenda.apagarCompromisso(nome, "01/01/2000");
+                        agenda.apagarCompromisso(nome, dia,mes,ano);
                     break;
                 case 0: 
                     return;
