@@ -7,20 +7,18 @@ public class Data {
 	int ano;
 
 	public static void main(String[] args) {
-		Data obj = new Data();
-		boolean boo = obj.dataValida();
-		if (!boo) {
-			System.out.println("data invalida");
-		} else {
-			System.out.println("data valida");
-		}
+	Data data = new Data();
+	boolean resposta = data.dataValida(12, 10, 3);
+	System.out.println(resposta);
+	String resposta2 = data.obterDataFormatada();
+	System.out.println(resposta2);
 	}
-
+	
 	public String obterDataFormatada() {
 		return String.format("%d/%d/%d", dia, mes, ano);
 	}
 
-	public boolean anoBissexto() {
+	public boolean anoBissexto(int ano) {
 		if (ano % 4 == 0) {
 			return true;
 		} else {
@@ -28,11 +26,10 @@ public class Data {
 		}
 	}
 
-	public boolean dataValida() {
-		Data obj = new Data();
+	public boolean dataValida(int ano, int mes, int dia) {
 		int[] maxDiaDoMes = { 31, 28, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
-		boolean anoBissexto = obj.anoBissexto();
+		boolean anoBissexto = anoBissexto(ano);
 		if (mes < 1 && mes > 12)
 			return false;
 		else if (ano < 2022)
@@ -42,7 +39,10 @@ public class Data {
 				return false;
 		} else if (dia > maxDiaDoMes[mes - 1] || dia < 0)
 			return false;
-			else 
+			else
+			this.dia = dia; 
+			this.mes = mes; 
+			this.ano = ano; 
 			return true;
 	}
 
