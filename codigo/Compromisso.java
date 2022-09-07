@@ -7,7 +7,7 @@ public class Compromisso {
    * 
    * @param nomeCompromisso O nome ou a descricao do comprimisso a ser agendado
    * @param dataCompromisso A data que ocorrera o comprimisso, sendo permitido
-   *                        apenas datas a partir de 2022
+   *                        apenas datas a partir de 2022, no formato dd/mm/yyyy
    * @return retorna true, caso um novo compromisso tenha sido criado, e false
    *         caso a data informada tenha sido invalida impossibilitando que o
    *         compromisso seja criado
