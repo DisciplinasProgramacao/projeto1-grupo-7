@@ -4,16 +4,6 @@ public class Data {
 	int mes;
 	int ano;
 
-	public static void main(String[] args) {
-		Data data = new Data();
-		// boolean resposta = data.dataValida(2022, 10, 3);
-		// System.out.println(resposta);
-		// String resposta2 = data.obterDataFormatada();
-		// System.out.println(resposta2);
-		// boolean resposta3 = data.dataValida("29/02/1923");
-		// System.out.println(resposta3);
-	}
-
 	/**
 	 * Metodo criado para formatar a data para String
 	 * 
