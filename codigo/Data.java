@@ -1,5 +1,3 @@
-// package trab1;
-
 public class Data {
 
 	int dia;
@@ -8,10 +6,12 @@ public class Data {
 
 	public static void main(String[] args) {
 		Data data = new Data();
-		boolean resposta = data.dataValida(2022, 10, 3);
-		System.out.println(resposta);
-		String resposta2 = data.obterDataFormatada();
-		System.out.println(resposta2);
+		// boolean resposta = data.dataValida(2022, 10, 3);
+		// System.out.println(resposta);
+		// String resposta2 = data.obterDataFormatada();
+		// System.out.println(resposta2);
+		// boolean resposta3 = data.dataValida("29/02/1923");
+		// System.out.println(resposta3);
 	}
 
 	/**
@@ -69,8 +69,18 @@ public class Data {
 		this.ano = ano;
 		return true;
 	}
-
+    /**
+	 * Metodo criado validar uma data em formato de String
+	 * @param data recebe uma data em formato de string seguindo o padrao "dd/mm/yyyy"
+	 * @return retorna true caso a data seja valida e caso contrario, false 
+	 */
 	public boolean dataValida(String data) {
-		return true;
+        String[] vetorData = data.split("/");
+		int dia = Integer.parseInt(vetorData[0]);
+		int mes = Integer.parseInt(vetorData[1]);
+		int ano = Integer.parseInt(vetorData[2]);
+		boolean dataValida = dataValida(ano, mes, dia);
+		if(dataValida) return true;
+		else return false;
 	}
 }
