@@ -1,5 +1,5 @@
 // import java.util.Scanner;
-public class CompromissoAlt{
+public class Compromissoold{
     private int quantidade;    
     private int intervaloDias;
     private String dataPrimeiro;
