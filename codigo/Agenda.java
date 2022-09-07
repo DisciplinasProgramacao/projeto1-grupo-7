@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Agenda {
     // Lista que vai manter o compromisso organizado
-    private List<CompromissoGenerico> compromisso = new ArrayList<CompromissoGenerico>();
+    private List<Compromisso> compromissos = new ArrayList<Compromisso>();
     
     /**
      * Método que marca compromissos controlando a criação de compromisso colocando quantas vezes vai ter um compromisso
@@ -20,8 +20,8 @@ public class Agenda {
         
         while (contador < quantidadeDias) {
             DataGenerico dataCompromisso = new DataGenerico(dia, mes, ano, intervaloDias);
-            CompromissoGenerico compromissoNovo = new CompromissoGenerico(dataCompromisso, nome);
-            compromisso.add(compromissoNovo);
+            Compromisso compromissoNovo = new Compromisso(dataCompromisso, nome);
+            compromissos.add(compromissoNovo);
             contador++;
           }
 
@@ -33,8 +33,8 @@ public class Agenda {
      */
     public String relatorioCompromissos(){
         String relatorio = "";
-        for (CompromissoGenerico compromissoGenerico : compromisso) {
-            relatorio = compromissoGenerico.mostrarComprimisso() + " / " + relatorio;
+        for (Compromisso compromisso : compromissos) {
+            relatorio = compromisso.mostrarComprimisso() + " / " + relatorio;
         }
         return relatorio;
 
@@ -49,8 +49,8 @@ public class Agenda {
         if(encontrarCompromisso(nome, data) == null){
             System.out.println("Compromisso não encontrado");
         } else {
-            CompromissoGenerico compromissoApagado = encontrarCompromisso(nome, data);
-            compromisso.remove(compromissoApagado);
+            Compromisso compromissoApagado = encontrarCompromisso(nome, data);
+            compromissos.remove(compromissoApagado);
         }
     }
 
@@ -60,10 +60,10 @@ public class Agenda {
      * @param data data do compromisso para ser encontrado
      * @return o compromisso que possui nome e data iguais aos do parâmetro
      */
-    public CompromissoGenerico encontrarCompromisso(String nome, String data){
-        for (CompromissoGenerico compromissoGenerico : compromisso) {
-            if(compromissoGenerico.mostrarComprimisso().equals(nome + ":" + data) ){
-                return compromissoGenerico;
+    public Compromisso encontrarCompromisso(String nome, String data){
+        for (Compromisso compromisso : compromissos) {
+            if(compromisso.mostrarComprimisso().equals(nome + ":" + data) ){
+                return compromisso;
             }
         }
         return null;
@@ -74,7 +74,7 @@ public class Agenda {
      * @return quantidade de compromissos dentro da lista de compromissos.
      */
     public int quantidadeCompromissos(){
-        return this.compromisso.size();
+        return this.compromissos.size();
     }
     
     
