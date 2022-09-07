@@ -22,16 +22,18 @@ public class Data {
 		return String.format("%d/%d/%d", dia, mes, ano);
 	}
 	/**
-	 * Metodo criado para analizar se o ano é bissexto
+	 * Metodo criado para analizar se o ano é bissexto ou seja, Para ser bissexto, o ano deve ser: 
+	 * Divisível por 4 e nao pode ser divisível por 100.
 	 * @param ano é necessario saber o ano para fazer a devida conta
 	 * @return retorna true, caso o ano seja bissexto e false caso nao seja
 	 */
 	public boolean anoBissexto(int ano) {
-		if (ano % 4 == 0) {
+		if (ano % 4 == 0 && ano % 100 != 0) {
 			return true;
 		} else {
 			return false;
 		}
+		
 	}
 	/**
 	 * Metodo criado para saber se a data é valida
