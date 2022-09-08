@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) throws Exception {
         Scanner teclado = new Scanner(System.in);   // para ler o teclado
-        int opcao=1;            // escolha da operação pelo usuário
+        int opcao=1;// escolha da operação pelo usuário
         int dia = 0;
         int mes = 0;
         int ano = 0;

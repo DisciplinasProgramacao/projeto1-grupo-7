@@ -53,7 +53,7 @@ public class Data{
 	 * @return 1 para datas falsas, 2 para passar mês, 3 para passar ano e 5 está correto
 	 */
 	private int dataValida(int dia, int mes, int ano) {
-		int[] maxDiaDoMes = { 31, 28, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+		int[] maxDiaDoMes = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 		
 
 		
