@@ -1,8 +1,6 @@
 | Usuário      | Requisito | Motivação     |
 | :----:        |    :----:   |          :----: |
-| Como um XXXXXX, eu quero      | --requsito--       | para...    |
-| Como um XXXXXX, eu quero   | --requisito--         | para...      |
+| Rafaela     | Modelagem       | Organizar a relação entre classes    |
+| Victor   | Documentação         | Melhorar a leitura do código      |
+| Charles   | Testes unitários       | Garantir que com as mudanças funcionalidades não quebrem      |
 
-
-
-> Written with [StackEdit](https://stackedit.io/).
