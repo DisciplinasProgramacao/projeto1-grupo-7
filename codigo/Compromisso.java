@@ -1,31 +1,22 @@
 public class Compromisso {
-  private String nomeCompromisso;
-  private String dataCompromisso;
+    private String data;
+    private String nome;
+    /**
+     * Construtor da classe compromisso, nela o compromisso é criado com data e nome dele
+     * @param data data do compromisso
+     * @param nome nome do compromisso
+     */
+    public Compromisso(Data data, String nome){
+        this.data = data.obterDataFormatada();
+        this.nome = nome;
+    }
+    /**
+     * Método que retorna o nome e a data do compromisso 
+     * @return String do nome e data do compromisso
+     */
+    public String mostrarComprimisso(){
+        return this.nome + ":" + this.data;
+    }
 
-  /**
-   * Construtor da Classe, passando todos os atribuos
-   * @param nomeCompromisso O nome ou a descricao do comprimisso a ser agendado
-   * @param dataCompromisso A data que ocorrera o comprimisso
-   * @return retorna true, caso a classe tenha sido criada
-   */
-  public boolean criarCompromissos(String nomeCompromisso,String dataCompromisso) {
-    Data data = new Data();
-    data.dataValida();
-    this.nomeCompromisso = nomeCompromisso;
-    this.dataCompromisso = dataCompromisso;
-    
-    return true;
-  }
-
-  /**
-   * Construtor da Classe, passando apenas o nome ou a descricao 
-   * @param nomeCompromisso O nome ou a descricao do comprimisso a ser agendado
-   * @return retorna true, para informar que a classe foi criada
-   */
-  public boolean criarCompromissos(String nomeCompromisso) {
-    this.nomeCompromisso = nomeCompromisso;
-    this.dataCompromisso = "Nao definida"; 
- 
-    return true;
-  }
 }
+

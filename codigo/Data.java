@@ -1,49 +1,119 @@
 // package trab1;
 
-public class Data {
+public class Data{
 
-	int dia;
-	int mes;
-	int ano;
-
-	public static void main(String[] args) {
-		Data obj = new Data();
-		boolean boo = obj.dataValida();
-		if (!boo) {
-			System.out.println("data invalida");
+	private int dia;
+	private int mes;
+	private int ano;
+	/**
+	 * Construtor da classe data, checa se a data é verdadeira e calcula
+	 * se tiver intervalo de dias para a data do compromisso que será criado
+	 * @param dia dia do compromisso se for sem intervalo de dias é o padrão, se tiver intervalo de dias vai ser o dia como parametro.
+	 * @param mes mes do compromisso se for sem intervalo de dias é o padrão, se tiver intervalo de dias vai ser o mes como parametro.
+	 * @param ano ano do compromisso se for sem intervalo de dias é o padrão, se tiver intervalo de dias vai ser o ano como parametro.
+	 * @param intervaloDias intervalo de dias a serem somadas a data.
+	 */
+	public Data(int dia, int mes, int ano, int intervaloDias){
+		if(intervaloDias == 0 && dataValida(dia, mes, ano) == 5){
+			this.dia = dia;
+			this.mes = mes;
+			this.ano = ano;
 		} else {
-			System.out.println("data valida");
+			dataComIntervalo(dia, mes, ano, intervaloDias);
 		}
+
 	}
 
+	/**
+	 * obter data final em string da maneira correta
+	 * @return Data em formato String
+	 */
 	public String obterDataFormatada() {
 		return String.format("%d/%d/%d", dia, mes, ano);
 	}
 
-	public boolean anoBissexto() {
+	/**
+	 * Retorna se o ano é bissexto ou não
+	 * @param ano parametro usando em função data válida
+	 * @return false para não bissexto true para bissexto
+	 */
+	private boolean anoBissexto(int ano) {
 		if (ano % 4 == 0) {
 			return true;
 		} else {
 			return false;
 		}
 	}
+	/**
+	 * Método que verifica se a datá é válida.
+	 * retorna 1 para datas falsas, 2 para passar mês, 3 para passar ano e 5 está correto
+	 * @param dia dia recebido pela função
+	 * @param mes mes recebido pela função
+	 * @param ano ano recebido pela função
+	 * @return 1 para datas falsas, 2 para passar mês, 3 para passar ano e 5 está correto
+	 */
+	private int dataValida(int dia, int mes, int ano) {
+		int[] maxDiaDoMes = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+		
 
-	public boolean dataValida() {
-		Data obj = new Data();
-		int[] maxDiaDoMes = { 31, 28, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+		
+		if (mes < 1 && mes > 12){
+			return 1;
+		} else if (ano < 2022) {
+			return 1;
+		} else if (anoBissexto(ano) && mes == 2) {
+			if (dia > 29){
+				return 2;
+			}
+			return 5;
+		} else if (dia > maxDiaDoMes[mes - 1]){
+			if(mes == 12){
+				return 3;
+			}
+			return 2;
+		} else {
+			return 5;
+		}
 
-		boolean anoBissexto = obj.anoBissexto();
-		if (mes < 1 && mes > 12)
-			return false;
-		else if (ano < 2022)
-			return false;
-		if (anoBissexto && mes == 1) {
-			if (dia > 29 && dia < 0)
-				return false;
-		} else if (dia > maxDiaDoMes[mes - 1] || dia < 0)
-			return false;
-			else 
-			return true;
+	}
+	
+	/**
+	 * Método que atualiza a data com base no intervalo dado no construtor
+	 * @param dia dia dado no construtor
+	 * @param mes mes dado no construtor
+	 * @param ano ano dado no construtor
+	 * @param intervaloDias intervalo de dias dado no construtor
+	 */
+	private void dataComIntervalo(int dia, int mes, int ano, int intervaloDias){
+		int auxDia = dia;
+		int auxMes = mes;
+		int auxAno = ano;
+		for (int i = 0; i < intervaloDias; i++) {
+			auxDia++;
+			switch (dataValida(auxDia, auxMes, auxAno)) {
+				case 1:
+						System.out.println("Não existe data");
+					break;
+				case 2:
+					auxDia = 1;
+					auxMes++;
+					break;
+				case 3:
+					auxDia = 1;
+					auxMes = 1;
+					auxAno++;
+					break;
+				case 5:
+					break;
+				default:
+					break;
+			}
+			
+		}
+		this.dia = auxDia;
+		this.mes = auxMes;
+		this.ano = auxAno;
+
 	}
 
 }
