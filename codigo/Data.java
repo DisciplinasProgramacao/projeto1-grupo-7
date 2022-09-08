@@ -62,11 +62,11 @@ public class Data{
 		} else if (ano < 2022) {
 			return 1;
 		} else if (anoBissexto(ano) && mes == 2) {
-			if (dia > 28){
+			if (dia > 29){
 				return 2;
 			}
 			return 5;
-		} else if (dia >= maxDiaDoMes[mes - 1]){
+		} else if (dia > maxDiaDoMes[mes - 1]){
 			if(mes == 12){
 				return 3;
 			}

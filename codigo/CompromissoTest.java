@@ -7,7 +7,7 @@ public class CompromissoTest {
   Compromisso compromisso = new Compromisso(data, "teste");
   @Test
   public void criarCompromissosCompletoTest() {
-    assertEquals("teste:2/9/2022 ", compromisso);
+    assertEquals("teste:2/9/2022", compromisso.mostrarComprimisso());
   }
 
 }
